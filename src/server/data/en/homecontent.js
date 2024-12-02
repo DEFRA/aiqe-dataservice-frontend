@@ -8,14 +8,14 @@ export const english = {
       c: 'download air pollution data',
       d: 'This service uses data from the Automatic Urban and Rural network (AURN)',
       e: 'This service shows you data for:',
-     p1: 'nitrogen dioxide',
-     p2: 'PM10',
-     p3: 'PM2.5',
-     p4: 'ozone',
-     p5: 'sulphur dioxide',
-     f:'You can check air quality to look up:',
-     g:'air quality in a local area, including the air pollution forecast for the next 5 days',
-     h:'health advice to reduce your exposure to pollutants',
+      p1: 'nitrogen dioxide',
+      p2: 'PM10',
+      p3: 'PM2.5',
+      p4: 'ozone',
+      p5: 'sulphur dioxide',
+      f: 'You can check air quality to look up:',
+      g: 'air quality in a local area, including the air pollution forecast for the next 5 days',
+      h: 'health advice to reduce your exposure to pollutants'
     }
   },
   login: {
