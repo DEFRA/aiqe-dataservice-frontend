@@ -5,10 +5,10 @@
  */
 import { english } from '~/src/server/data/en/homecontent.js'
 
-export const homeController = {
+export const searchController = {
   handler(_request, h) {
     const { home } = english
-    return h.view('home/index', {
+    return h.view('search/index', {
       pageTitle: home.pageTitle,
       heading: home.heading,
       text: home.texts,

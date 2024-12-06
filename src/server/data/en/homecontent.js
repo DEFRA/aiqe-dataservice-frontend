@@ -2,6 +2,8 @@ export const english = {
   home: {
     pageTitle: 'Get air pollution data',
     heading: 'This is a private beta',
+    subheading: ' Related content',
+    buttonText: 'Start now',
     texts: {
       a: 'Use this service to:',
       b: 'find air quality monitoring stations',
@@ -13,9 +15,18 @@ export const english = {
       p3: 'PM2.5',
       p4: 'ozone',
       p5: 'sulphur dioxide',
-      f: 'You can check air quality to look up:',
+      f: 'You can',
       g: 'air quality in a local area, including the air pollution forecast for the next 5 days',
-      h: 'health advice to reduce your exposure to pollutants'
+      h: 'health advice to reduce your exposure to pollutants',
+      i: 'check air quality',
+      j: 'to look up:'
+    },
+    links: {
+      a: 'Check air quality',
+      b: 'Health effects of air pollution',
+      c: 'Air pollutants we measure',
+      d: 'Why we monitor air pollution',
+      e: 'Air quality alerts'
     }
   },
   login: {
