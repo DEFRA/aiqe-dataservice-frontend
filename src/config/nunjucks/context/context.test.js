@@ -47,7 +47,7 @@ describe('#context', () => {
             url: '/about'
           }
         ],
-        serviceName: 'aiqe-dataservice-frontend',
+        serviceName: 'cdp-node-frontend-template',
         serviceUrl: '/'
       })
     })
@@ -136,7 +136,7 @@ describe('#context cache', () => {
             url: '/about'
           }
         ],
-        serviceName: 'aiqe-dataservice-frontend',
+        serviceName: 'cdp-node-frontend-template',
         serviceUrl: '/'
       })
     })

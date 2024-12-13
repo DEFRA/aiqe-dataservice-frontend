@@ -40,7 +40,7 @@ export const config = convict({
   serviceName: {
     doc: 'Applications Service Name',
     format: String,
-    default: 'aiqe-dataservice-frontend'
+    default: 'cdp-node-frontend-template'
   },
   root: {
     doc: 'Project root',
@@ -92,7 +92,7 @@ export const config = convict({
       format: Array,
       default: isProduction
         ? ['req.headers.authorization', 'req.headers.cookie', 'res.headers']
-        : ['req', 'res', 'responseTime']
+        : []
     }
   },
   httpProxy: /** @type {SchemaObj<string | null>} */ ({
@@ -187,7 +187,7 @@ export const config = convict({
     keyPrefix: {
       doc: 'Redis cache key prefix name used to isolate the cached results across multiple clients',
       format: String,
-      default: 'aiqe-dataservice-frontend:',
+      default: 'cdp-node-frontend-template:',
       env: 'REDIS_KEY_PREFIX'
     },
     useSingleInstanceCache: {
@@ -213,6 +213,14 @@ export const config = convict({
       doc: 'Use a cache and recompile templates each time',
       format: Boolean,
       default: isDevelopment
+    }
+  },
+  tracing: {
+    header: {
+      doc: 'Which header to track',
+      format: String,
+      default: 'x-cdp-request-id',
+      env: 'TRACING_HEADER'
     }
   }
 })
