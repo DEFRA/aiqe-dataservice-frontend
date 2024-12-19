@@ -1,28 +1,16 @@
-import { searchController } from '~/src/server/search-location/controller.js'
+import { searchLocationController } from '~/src/server/search-location/controller.js'
 
-/**
- * Sets up the routes used in the home page.
- * These routes are registered in src/server/router.js.
- */
-
-/**
- * @satisfies {ServerRegisterPluginObject<void>}
- */
-export const search = {
+export const searchLocation = {
   plugin: {
-    name: 'search',
+    name: 'search-location',
     register(server) {
       server.route([
         {
           method: 'GET',
-          path: '/search',
-          ...searchController
+          path: '/search-location',
+          ...searchLocationController
         }
       ])
     }
   }
 }
-
-/**
- * @import { ServerRegisterPluginObject } from '@hapi/hapi'
- */
