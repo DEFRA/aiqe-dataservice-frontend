@@ -1,96 +1,80 @@
 {% extends 'layouts/page.njk' %}
-
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% block content %}
-  {{ appHeading({
-    text: "",
-    caption: ""
-  }) }}
-
-
-
-
-<div class="govuk-grid-row">
+  <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
 
-    <h1 class="govuk-heading-xl">{{pageTitle}}</h1>
+   {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 
-    <p class="govuk-body">{{text.a}}</p>
-
-    <ul class="govuk-list govuk-list--bullet">
-      <li>{{text.b}}</li>
-      <li>{{text.c}}</li>
-    </ul> 
-
-
-
-<p class="govuk-body">{{text.d}}</p>
-
-    <p class="govuk-body">{{text.e}}</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>{{text.p1}}</li>
-      <li>{{text.p2}}</li>
-      <li>{{text.p3}}</li>
-      <li{{text.p4}}</li>
-      <li>{{text.p5}}</li>
-    </ul> 
-  
+{{ govukBackLink({
+  text: "Back",
+  href: "/"
+}) }}
+      {% if errors %}
+        {{ govukErrorSummary(errors) }}
+      {% endif %}
 
 
+      <form id="itembox" action="" method="POST" name="search-form" value="search">
+       
 
-  {% from "govuk/components/button/macro.njk" import govukButton %}
-            {{ 
-          govukButton({
-            text: buttontxt,
-            href: "",
-            isStartButton: true
-        }) 
-        }}
-<p class="govuk-body">{{text.f}} <a href="" class="govuk-link">{{text.i}}</a> {{text.j}}</p>
-<ul class="govuk-list govuk-list--bullet">
-  <li>{{text.g}}</li>
-  <li>{{text.h}}</li>
+         <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{params.text1}}</h1>
 
-</ul> 
-    </div>
-
-    <div class="govuk-grid-column-full-until-desktop govuk-grid-column-one-third-from-desktop govuk-!-margin-top-3">
-      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
-        <h2 class="govuk-heading-m" id="subsection-title">
-         {{subheading}}
-        </h2>
-        <nav role="navigation" aria-labelledby="subsection-title">
-          <ul class="govuk-list govuk-!-font-size-16">
-            <li>
-              <a href="#">
-              {{links.a}}
-              </a>
-            </li>
-            <li class="govuk-!-margin-top-3">
-              <a href="#">
-                 {{links.b}}
-              </a>
-            </li>
-            <li class="govuk-!-margin-top-3">
-              <a href="#">
-                {{links.c}}
-              </a>
-            </li>
-            <li class="govuk-!-margin-top-3">
-              <a href="#">
-              {{links.d}}
-              </a>
-            </li>
-            <li class="govuk-!-margin-top-3">
-              <a href="#">
-               {{links.e}}
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
-    </div>
+   <p class="govuk-body govuk-hint">{{params.text2}}</p>
+                {{ govukInput({
+    label: {
+      text: params.text3,      
+      isPageHeading: true
+    },
+    id: "event-name",
+    name: "eventName"
+  }) }}
+        
+             
+           
+        
     
-</div>
 
+        
+         {{ govukRadios({
+          name: "locationMiles",
+          fieldset: {
+            legend: {
+              text: params.text4,
+              isPageHeading: true
+             
+            }
+          },
+          items: [
+            {
+              value: "uk-location",
+              text: params.text5
+          
+            
+            },
+            {
+              value: "ni-location",
+              text: params.text6
+              
+            },
+            {
+              value: "ni-location",
+              text: params.text7
+              
+            }
+            
+          ],
+          errorMessage: errorMessage
+        }) }} 
+
+        {{ govukButton({
+  text: button
+}) }}
+
+        {# <input type="hidden" name="aq" value="{{ airQuality.value }}" /> #}
+      </form>
+    </div>
+  </div>
 {% endblock %}
-
