@@ -54,18 +54,16 @@ export const english = {
     heading: 'Check local air quality',
     page: 'search-location',
     serviceName: 'Check local air quality',
+
     searchParams: {
-      label: {
-        text: 'Where do you want to check?'
-      },
-      hint: {
-        text1: 'Enter a location or postcode',
-        text2: 'Enter a postcode'
-      },
-      locations: {
-        a: 'England, Scotland or Wales',
-        b: 'Northern Ireland'
-      }
+      text1: 'Find monitoring stations by location',
+      text2:
+        'You can only search by postcode for locations in Northern Ireland.',
+      text3: 'Enter a town or postcode',
+      text4: 'Approximate search area',
+      text5: '5 miles',
+      text6: '25 miles',
+      text7: '50 miles'
     },
     button: 'Continue',
     errorText: {
@@ -460,10 +458,13 @@ export const english = {
           'Helps us count how many people visit the Check local air quality by telling us if you’ve visited before.',
         text8: '24 hours',
         text9: 'Used to reduce the number of requests.',
-        text10: '1 minute'
+        text10: '1 minute',
+        text11:
+          'Application related data is managed in this cookie and it is required for application functionality to work',
+        text12: '30 minutes'
       },
       paragraphs: {
-        w: '',
+        w1: '',
         a: 'Check local air quality',
         b: 'puts small files (known as ‘cookies’) on your computer.',
         c: 'These cookies are used across the Check local air quality website.',
@@ -483,6 +484,16 @@ export const english = {
         q: 'the device and browser you use',
         r: 'Yes',
         s: 'No',
+        u: 'The cookies _ga_ and _gat_UA-[G-8CMZBTDQBC] will only be active if you accept the cookies. However, if you do not accept cookies, they may still appear in your cookie session, but they will not be active.',
+        v: 'We use Google Analytics software to understand how people use the Check air quality. We do this to help make sure the site is meeting the needs of its users and to help us make improvements.',
+        w: 'We do not collect or store your personal information (for example your name or address) so this information cannot be used to identify who you are.',
+        x: 'We do not allow Google to use or share our analytics data.',
+        y: 'Google Analytics stores information about:',
+        z1: 'the pages you visit',
+        z2: 'how long you spend on each page',
+        z3: 'how you arrived at the site',
+        z4: 'what you click on while you visit the site',
+        z5: 'the device and browser you use',
         buttonText: 'Save cookie settings'
       }
     },

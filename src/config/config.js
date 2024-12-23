@@ -40,7 +40,7 @@ export const config = convict({
   serviceName: {
     doc: 'Applications Service Name',
     format: String,
-    default: 'cdp-node-frontend-template'
+    default: 'Get air pollution data'
   },
   root: {
     doc: 'Project root',
