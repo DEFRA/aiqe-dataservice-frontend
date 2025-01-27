@@ -39,9 +39,9 @@ export const english = {
     }
   },
   checkLocalAirQuality: {
-    pageTitle: 'Check local air quality - GOV.UK',
-    heading: 'Check local air quality',
-    page: 'Check local air quality',
+    pageTitle: 'Get air pollution data - GOV.UK',
+    heading: 'Get air pollution data',
+    page: 'Get air pollution data',
     paragraphs: {
       a: 'Use this service to:',
       b: 'check air quality in a local area',
@@ -50,10 +50,11 @@ export const english = {
     button: 'Start now'
   },
   searchLocation: {
-    pageTitle: 'Check local air quality - GOV.UK',
-    heading: 'Check local air quality',
+    pageTitle: 'Get air pollution data',
+    heading: 'Get air pollution data',
     page: 'search-location',
-    serviceName: 'Check local air quality',
+    serviceName: 'Get air pollution data',
+    
 
     searchParams: {
       text1: 'Find monitoring stations by location',
@@ -76,9 +77,9 @@ export const english = {
       uk: {
         fields: {
           title: 'There is a problem',
-          list: {
-            text: 'Enter a location or postcode'
-          }
+          
+            text: 'Enter a town or postcode'
+          
         }
       },
       ni: {
@@ -92,7 +93,7 @@ export const english = {
     }
   },
   notFoundLocation: {
-    heading: 'Check local air quality',
+    heading: 'Get air pollution data',
     paragraphs: {
       a: 'We could not find',
       b: 'If you searched for a place in England, Scotland or Wales, you should:',
@@ -110,9 +111,9 @@ export const english = {
     }
   },
   multipleLocations: {
-    pageTitle: 'Check local air quality - GOV.UK',
+    pageTitle: 'Get air pollution data',
     title: 'Locations matching',
-    serviceName: 'Check local air quality',
+    serviceName: 'Get air pollution data',
     paragraphs: {
       a: 'More than one match was found for your location. Choose the correct location from the following options:',
       b: 'Alternatively,',
@@ -131,7 +132,7 @@ export const english = {
     text: 'Change location'
   },
   cookieBanner: {
-    title: 'Cookies on Check local air quality',
+    title: 'Cookies on Get air pollution data',
     paragraphs: {
       a: 'We use some essential cookies to make this service work.',
       b: "We'd also like to use analytics cookies so we can understand how you use the service and make improvements."
@@ -223,8 +224,8 @@ export const english = {
   pollutants: {
     ozone: {
       title: 'Ozone (O₃)',
-      pageTitle: 'Ozone(O₃) – Check local air quality – GOV.UK',
-      headerText: 'Check local air quality',
+      pageTitle: 'Ozone(O₃) – Get air pollution data – GOV.UK',
+      headerText: 'Get air pollution data',
       headings: {
         a: 'Sources of ozone',
         b: 'Health effects'
@@ -246,8 +247,8 @@ export const english = {
     },
     nitrogenDioxide: {
       title: 'Nitrogen dioxide (NO₂)',
-      pageTitle: 'Nitrogen dioxide (NO₂) – Check local air quality – GOV.UK',
-      headerText: 'Check local air quality',
+      pageTitle: 'Nitrogen dioxide (NO₂) – Get air pollution data – GOV.UK',
+      headerText: 'Get air pollution data',
       headings: {
         a: 'Sources of nitrogen dioxide',
         b: 'Health effects'
@@ -271,8 +272,8 @@ export const english = {
     },
     sulphurDioxide: {
       title: 'Sulphur dioxide (SO₂)',
-      pageTitle: 'Sulphur dioxide (NO₂) – Check local air quality – GOV.UK',
-      headerText: 'Check local air quality',
+      pageTitle: 'Sulphur dioxide (NO₂) – Get air pollution data – GOV.UK',
+      headerText: 'Get air pollution data',
       headings: {
         a: 'Sources of sulphur dioxide',
         b: 'Health effects'
@@ -296,8 +297,8 @@ export const english = {
     },
     particulateMatter10: {
       title: 'Particulate matter (PM10)',
-      pageTitle: 'Particulate matter (PM10) – Check local air quality – GOV.UK',
-      headerText: 'Check local air quality',
+      pageTitle: 'Particulate matter (PM10) – Get air pollution data – GOV.UK',
+      headerText: 'Get air pollution data',
       headings: {
         a: 'Sources of PM10',
         b: 'Health effects'
@@ -328,8 +329,8 @@ export const english = {
     particulateMatter25: {
       title: 'Particulate matter (PM2.5)',
       pageTitle:
-        'Particulate matter (PM2.5) – Check local air quality – GOV.UK',
-      headerText: 'Check local air quality',
+        'Particulate matter (PM2.5) – Get air pollution data – GOV.UK',
+      headerText: 'Get air pollution data',
       headings: {
         a: 'Sources of PM2.5',
         b: 'Health effects'
@@ -361,9 +362,9 @@ export const english = {
   },
   footer: {
     privacy: {
-      pageTitle: 'Check local air quality - GOV.UK',
-      title: 'Check local air quality privacy notice',
-      heading: 'Check local air quality',
+      pageTitle: 'Get air pollution data',
+      title: 'Check air quality privacy notice',
+      heading: 'Get air pollution data',
       headings: {
         a: 'Who collects your personal data',
         b: 'What personal data we collect and how it is used',
@@ -379,7 +380,7 @@ export const english = {
         l: 'Persona information charter'
       },
       paragraphs: {
-        a: 'This privacy notice explains how the Check local air quality service processes and shares your personal data. If you have any queries about the content of this privacy notice, please email',
+        a: 'This privacy notice explains how the Get air pollution data service processes and shares your personal data. If you have any queries about the content of this privacy notice, please email',
         b: 'Department for Environment, Food and Rural Affairs (Defra) is the controller for the personal data we collect:',
         c: 'Department for Environment, Food and Rural Affairs',
         d: 'Seacole Building',
@@ -389,17 +390,17 @@ export const english = {
         h: 'If you need further information about how Defra uses your personal data and your associated rights you can contact the Defra data protection manager at ',
         i: 'or at the above address.',
         j: 'The data protection officer for Defra is responsible for checking that Defra complies with legislation. You can contact them at',
-        k: 'We collect:',
+        k: 'For the service to be functional, we collect the postcode or placename that you search for as this is essential data for the service to give relevant data.',
         l: 'the postcode or placename that you search for as this is essential data for the service to give relevant data',
-        m: 'your IP address so that we can collect information on where users are based',
+        m: 'your IP address so that we can collect location information of users to our service. This will help us see what geographical locations are using our service.',
         n: 'your device and operating system to enable us to improve our service',
-        o: "the search term you used to find 'Check local air quality' to enable us to improve our service",
-        p: "the pages you interact with in 'Check local air quality' to enable us to improve our service",
+        o: "the pages you interact with in 'Check air quality' to enable us to improve our service",
+        p: "the pages you interact with in 'Get air pollution data' to enable us to improve our service",
         q: 'The legal basis for processing your personal data to conduct research on the effectiveness of the service is consent. You do not have to provide your consent and you can withdraw your consent at any time.',
-        r: 'The processing of your personal data is based on consent. You can withdraw consent at any time by emailing ',
+        r: 'The processing of your personal data is based on consent. We do not collect any information that could be personally linked to an individual; however, the IP address will be recorded for functionality of the service.',
         s: 'We do not share the personal data collected under this privacy notice with other organisations.',
         t: 'We respect your personal privacy when responding to access to information requests. We only share information when necessary to meet the statutory requirements of the Environmental Information Regulations 2004 and the Freedom of Information Act 2000.',
-        u: 'We will keep your personal data for 7 in line with legislative requirements which is 7.',
+        u: 'We will keep your personal data for 7 years in line with legislative requirements which is 7 years.',
         w: 'for advice on retention period that you need to state here.',
         x: 'If you do not provide the personal data of the postcode or location that you are searching for, then you will not be able to use our service as we will not be able to provide you any data.',
         y: 'The other personal data is optional and only required for service improvement.',
@@ -426,7 +427,13 @@ export const english = {
         a19: 'Personal information charter',
         a20: 'Our',
         a21: 'personal information charter',
-        a22: 'explains more about your rights over your personal data.'
+        a22: 'explains more about your rights over your personal data.',
+        a23:'If you accept the Google analytical cookies, then we will collect:',
+        a24:'You can ',
+        a25:'opt in and out of cookie acceptance.',
+       r2:'If you have consented to accepting cookies, any information that we collect during this process cannot be removed as we will be unable to identify that information to a specific individual.',
+        a27:"the search term you used to find 'Check air quality' to enable us to improve our service",
+      a28:"opt in and out of cookie acceptance."
       }
     },
     cookies: {
@@ -451,11 +458,11 @@ export const english = {
         text2: 'Purpose',
         text3: 'Expires',
         text4:
-          'Helps us count how many people visit the Check local air quality by telling us if you’ve visited before.',
+          'Helps us count how many people visit the Get air pollution data by telling us if you’ve visited before.',
         text5: '2 years',
         text6: '_gid',
         text7:
-          'Helps us count how many people visit the Check local air quality by telling us if you’ve visited before.',
+          'Helps us count how many people visit the Get air pollution data by telling us if you’ve visited before.',
         text8: '24 hours',
         text9: 'Used to reduce the number of requests.',
         text10: '1 minute',
@@ -465,15 +472,15 @@ export const english = {
       },
       paragraphs: {
         w1: '',
-        a: 'Check local air quality',
+        a: 'Get air pollution data',
         b: 'puts small files (known as ‘cookies’) on your computer.',
-        c: 'These cookies are used across the Check local air quality website.',
+        c: 'These cookies are used across the Check air quality website.',
         d: 'We only set cookies when JavaScript is running in your browser and you’ve accepted them. If you choose not to run Javascript, the information on this page will not apply to you.',
         e: 'Find out',
         f: 'how to manage cookies',
         g: 'from the Information Commissioner‘s Office.',
         h: 'We use an essential cookie to remember when you accept or reject cookies on our website.',
-        i: 'We use Google Analytics software to understand how people use the Check local air quality. We do this to help make sure the site is meeting the needs of its users and to help us make improvements.',
+        i: 'We use Google Analytics software to understand how people use the Get air pollution data. We do this to help make sure the site is meeting the needs of its users and to help us make improvements.',
         j: 'We do not collect or store your personal information (for example your name or address) so this information cannot be used to identify who you are.',
         k: 'We do not allow Google to use or share our analytics data.',
         l: 'Google Analytics stores information about:',
@@ -509,9 +516,9 @@ export const english = {
         a: 'Department for Environment, Food & Rural Affairs is committed to making its websites accessible in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.',
         b: 'This accessibility statement applies to',
         c: 'This website is fully compliant with the Web Content Accessibility Guidelines (WCAG) version 2.2 AA standard.',
-        d: 'This statement was prepared on 20 March 2024.',
+        d: 'This statement was prepared on 18 September 2024.',
         e: 'The website was evaluated by the Department for Environment, Food & Rural Affairs.',
-        f: 'The statement was last reviewed on 11 March 2024.',
+        f: 'The statement was last reviewed on 16 September 2024.',
         g: 'If you notice any compliance failures or need to request information and content that is not provided in this document, please email',
         h: 'The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’).',
         i: 'If you’re not happy with how we respond to your complaint, contact the Equality Advisory and Support Service (EASS).'
