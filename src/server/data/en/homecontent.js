@@ -54,7 +54,6 @@ export const english = {
     heading: 'Get air pollution data',
     page: 'search-location',
     serviceName: 'Get air pollution data',
-    
 
     searchParams: {
       text1: 'Find monitoring stations by location',
@@ -77,9 +76,8 @@ export const english = {
       uk: {
         fields: {
           title: 'There is a problem',
-          
-            text: 'Enter a town or postcode'
-          
+
+          text: 'Enter a town or postcode'
         }
       },
       ni: {
@@ -328,8 +326,7 @@ export const english = {
     },
     particulateMatter25: {
       title: 'Particulate matter (PM2.5)',
-      pageTitle:
-        'Particulate matter (PM2.5) – Get air pollution data – GOV.UK',
+      pageTitle: 'Particulate matter (PM2.5) – Get air pollution data – GOV.UK',
       headerText: 'Get air pollution data',
       headings: {
         a: 'Sources of PM2.5',
@@ -428,12 +425,12 @@ export const english = {
         a20: 'Our',
         a21: 'personal information charter',
         a22: 'explains more about your rights over your personal data.',
-        a23:'If you accept the Google analytical cookies, then we will collect:',
-        a24:'You can ',
-        a25:'opt in and out of cookie acceptance.',
-       r2:'If you have consented to accepting cookies, any information that we collect during this process cannot be removed as we will be unable to identify that information to a specific individual.',
-        a27:"the search term you used to find 'Check air quality' to enable us to improve our service",
-      a28:"opt in and out of cookie acceptance."
+        a23: 'If you accept the Google analytical cookies, then we will collect:',
+        a24: 'You can ',
+        a25: 'opt in and out of cookie acceptance.',
+        r2: 'If you have consented to accepting cookies, any information that we collect during this process cannot be removed as we will be unable to identify that information to a specific individual.',
+        a27: "the search term you used to find 'Check air quality' to enable us to improve our service",
+        a28: 'opt in and out of cookie acceptance.'
       }
     },
     cookies: {
