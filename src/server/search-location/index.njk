@@ -10,17 +10,63 @@
 
 {{ govukBackLink({
   text: "Back",
-  href: "/"
+  href: "/search-location"
 }) }}
-      {% if errors %}
-        {{ govukErrorSummary(errors) }}
-      {% endif %}
+   
+
+ {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+ {% if errors.list %}
+     <div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#my-autocomplete">{{errorMessage.message.text}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+  {% endif %}
+      <form action='/multiplelocations' method="get">
+     
+<div id="frontendUrl" style="display: none;">{{frontendUrl}}{{fullSearchQuery}}</div>
+    <div  class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="searchinput">
+         {{params.text1}}
+        </label>
+      </h1>
+      <p id="hint1" class="govuk-body govuk-hint" for="searchinput">
+        {{params.text2}}
+      </p>
+{% if errorMessage.message %}
+  <p id="event-name-error" class="govuk-error-message">
+    <span class="govuk-visually-hidden">Error:</span> {{errorMessage.message.text}}
+  </p>
+{% endif %}
+ <label class="govuk-label" for="searchinput">
+     {{params.text3}}
+    </label>
+<input class="govuk-input" id="search-input" name="fullSearchQuery" type="text" value='{{fullSearchQuery.value}}'></input>
+  
+</div>
 
 
-      <form id="itembox" action="" method="POST" name="search-form" value="search">
-       
 
-         <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{params.text1}}</h1>
+
+
+
+
+
+
+
+
+
+         {# <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{params.text1}}</h1>
 
    <p class="govuk-body govuk-hint">{{params.text2}}</p>
                 {{ govukInput({
@@ -30,7 +76,7 @@
     },
     id: "event-name",
     name: "eventName"
-  }) }}
+  }) }} #}
         
              
            
@@ -49,18 +95,19 @@
           },
           items: [
             {
-              value: "uk-location",
-              text: params.text5
+              value:5,
+              text: params.text5,
+              checked:true
           
             
             },
             {
-              value: "ni-location",
+              value: 25,
               text: params.text6
               
             },
             {
-              value: "ni-location",
+              value: 50,
               text: params.text7
               
             }

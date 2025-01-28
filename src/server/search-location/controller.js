@@ -2,11 +2,13 @@ import { english } from '~/src/server/data/en/homecontent.js'
 
 const searchLocationController = {
   handler: (request, h) => {
-    // const { query, path } = request
-
-    // const errors = request.yar.get('errors')
-    // const errorMessage = request.yar.get('errorMessage')
-    // const locationType = request.yar.get('locationType')
+    // const { query } = request
+    request.yar.set('errors', '')
+    request.yar.set('errorMessage', '')
+    if (request != null) {
+      //   const x = query
+      // const invalidSearchEntry = false
+    }
 
     return h.view('search-location/index', {
       pageTitle: english.searchLocation.pageTitle,

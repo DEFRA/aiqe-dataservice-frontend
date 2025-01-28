@@ -25,7 +25,7 @@ const config = convict({
   serviceName: {
     doc: 'Applications Service Name',
     format: String,
-    default: 'Check local air quality'
+    default: 'Get air pollution data'
   },
   // root: {
   //   doc: 'Project root',

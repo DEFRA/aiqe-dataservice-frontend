@@ -6,8 +6,10 @@
 import { english } from '~/src/server/data/en/homecontent.js'
 
 export const homeController = {
-  handler(_request, h) {
+  handler(request, h) {
     const { home } = english
+    request.yar.set('searchQuery', null)
+    request.yar.set('fullSearchQuery', null)
     return h.view('home/index', {
       pageTitle: home.pageTitle,
       heading: home.heading,

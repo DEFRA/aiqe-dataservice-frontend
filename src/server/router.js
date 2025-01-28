@@ -7,6 +7,7 @@ import { privacy } from '~/src/server/privacy/index.js'
 import { cookies } from '~/src/server/cookies/index.js'
 import { accessibility } from '~/src/server/accessibility/index.js'
 import { searchLocation } from '~/src/server/search-location/index.js'
+import { multiplelocations } from '~/src/server/multiplelocations/index.js'
 import { serveStaticFiles } from '~/src/server/common/helpers/serve-static-files.js'
 import { about } from '~/src/server/about/index.js'
 
@@ -29,7 +30,8 @@ export const router = {
         privacy,
         accessibility,
         cookies,
-        searchLocation
+        searchLocation,
+        multiplelocations
       ])
 
       // Static assets
