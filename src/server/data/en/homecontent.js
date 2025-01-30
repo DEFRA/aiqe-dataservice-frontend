@@ -118,6 +118,22 @@ export const english = {
       c: 'try searching again'
     }
   },
+  monitoringStation: {
+    pageTitle: 'Get air pollution data',
+    title: {
+      title1: 'Monitoring stations',
+      title2: 'within ',
+      title3: 'of'
+    },
+
+    serviceName: 'Get air pollution data',
+    paragraphs: {
+      a: 'Change search area',
+      b: 'Monitoring station',
+      c: 'Site type',
+      d: 'Pollutants'
+    }
+  },
   phaseBanner: {
     paragraphs: {
       a: 'Beta',

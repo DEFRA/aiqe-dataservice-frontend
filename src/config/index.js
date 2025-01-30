@@ -27,6 +27,18 @@ const config = convict({
     format: String,
     default: 'Get air pollution data'
   },
+  backendApiUrl: {
+    doc: 'Backend api url',
+    format: String,
+    default: 'http://localhost:3001',
+    env: 'BACKEND_API_URL'
+  },
+  osnameApiUrl: {
+    doc: 'Osname api url',
+    format: String,
+    default: '/osnameplaces/userLocation=',
+    env: 'Osname api url'
+  },
   // root: {
   //   doc: 'Project root',
   //   format: String,

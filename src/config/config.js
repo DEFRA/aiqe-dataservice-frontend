@@ -68,6 +68,7 @@ export const config = convict({
     format: Boolean,
     default: isTest
   },
+
   log: {
     enabled: {
       doc: 'Is logging enabled',
@@ -195,6 +196,18 @@ export const config = convict({
       format: Boolean,
       default: !isProduction,
       env: 'USE_SINGLE_INSTANCE_CACHE'
+    },
+    backendApiUrl: {
+      doc: 'Backend api url',
+      format: String,
+      default: 'http://localhost:3001',
+      env: 'BACKEND_API_URL'
+    },
+    osnameApiUrl: {
+      doc: 'Osname api url',
+      format: String,
+      default: '/osnameplaces/userLocation=',
+      env: 'Osname api url'
     },
     useTLS: {
       doc: 'Connect to redis using TLS',
