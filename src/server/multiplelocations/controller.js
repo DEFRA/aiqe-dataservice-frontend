@@ -1,5 +1,6 @@
 import { english } from '~/src/server/data/en/homecontent.js'
 import { setErrorMessage } from '~/src/server/common/helpers/errors_message.js'
+import { config } from '~/src/config/index.js'
 import axios from 'axios'
 
 const multipleLocationsController = {
@@ -9,7 +10,7 @@ const multipleLocationsController = {
     if (request != null) {
       request.yar.set('errors', '')
       request.yar.set('errorMessage', '')
-
+      request.yar.set('locationMiles', request.query?.locationMiles)
       if (request.query?.fullSearchQuery?.length > 0) {
         request.yar.set('fullSearchQuery', {
           value: decodeURI(request.query.fullSearchQuery)
@@ -22,50 +23,66 @@ const multipleLocationsController = {
       }
     }
     const searchInput = request?.yar?.get('fullSearchQuery')
-    // const searchValue = searchInput?.value
+    const searchValue = searchInput?.value
     // const userLocation = searchValue
-    // console.log('searchInput', searchInput, searchValue,query)
+
+    const locationMiles = request.query?.locationMiles
+    if (searchValue) {
+      request.yar.set('searchLocation', searchValue)
+    } else {
+      request.yar.set('searchLocation', '')
+    }
     if (searchInput) {
       request.yar.set('errors', '')
       request.yar.set('errorMessage', '')
       const result = await invokeosnameAPI()
-      // console.log('resultofAPI', result)
+
       async function invokeosnameAPI() {
         try {
-          const response = await axios.get('http://localhost:3001/osnameplaces')
+          const response = await axios.get(
+            config.get('backendApiUrl') +
+              config.get('osnameApiUrl') +
+              searchValue
+          )
 
           return response.data
         } catch (error) {
           return error // Rethrow the error so it can be handled appropriately
         }
       }
-
-      //       let matches = result.filter((item) => {
-      //         const name = item?.GAZETTEER_ENTRY.NAME1.toUpperCase().replace(
-      //           /\s+/g,
-      //           ''
-      //         )
-      //         const name2 = item?.GAZETTEER_ENTRY.NAME2?.toUpperCase().replace(
-      //           /\s+/g,
-      //           ''
-      //         )
-      //         return (
-      //           name.includes(userLocation.replace(/\s+/g, '')) ||
-      //           userLocation.includes(name) ||
-      //           userLocation.includes(name2)
-      //         )
-      //       })
-      // console.log('getOSPlaces', result.getOSPlaces)
-      return h.view('multiplelocations/index', {
-        results: result.getOSPlaces,
-        pageTitle: english.multipleLocations.pageTitle,
-        heading: english.multipleLocations.heading,
-        page: english.multipleLocations.page,
-        serviceName: english.searchLocation.serviceName,
-        title: english.multipleLocations.title,
-        params: english.multipleLocations.paragraphs,
-        button: english.multipleLocations.button
-      })
+      const locations = result.getOSPlaces
+      if (locations) {
+        if (locations.length === 0) {
+          return h.view('multiplelocations/nolocation', {
+            results: result.getOSPlaces,
+            serviceName: english.notFoundLocation.heading,
+            paragraph: english.notFoundLocation.paragraphs,
+            searchLocation: searchValue
+          })
+        } else if (locations.length === 1) {
+          return h.view('monitoring-station/index', {
+            pageTitle: english.monitoringStation.pageTitle,
+            title: english.monitoringStation.title,
+            serviceName: english.monitoringStation.serviceName,
+            paragraphs: english.monitoringStation.paragraphs,
+            searchLocation: searchValue,
+            locationMiles
+          })
+        } else {
+          return h.view('multiplelocations/index', {
+            results: result.getOSPlaces,
+            pageTitle: english.multipleLocations.pageTitle,
+            heading: english.multipleLocations.heading,
+            page: english.multipleLocations.page,
+            serviceName: english.searchLocation.serviceName,
+            title: english.multipleLocations.title,
+            params: english.multipleLocations.paragraphs,
+            button: english.multipleLocations.button,
+            locationMiles,
+            searchLocation: searchValue
+          })
+        }
+      }
     } else {
       const searchInput = request?.yar?.get('fullSearchQuery')
       if (!searchInput?.value) {

@@ -5,6 +5,9 @@ const searchLocationController = {
     // const { query } = request
     request.yar.set('errors', '')
     request.yar.set('errorMessage', '')
+    // const searchLocation = request.yar.get('searchLocation')
+    // const locationMiles = request.yar.get('locationMiles')
+
     if (request != null) {
       //   const x = query
       // const invalidSearchEntry = false
