@@ -380,14 +380,14 @@ export const english = {
       heading: 'Get air pollution data',
       headings: {
         a: 'Who collects your personal data',
-        b: 'What personal data we collect and how it is used',
+        b: 'What personal data we collect and how it’s used',
         c: 'Lawful basis for processing your personal data',
         d: 'Consent to process your personal data',
         e: 'Who we share your personal data with',
-        f: 'How long we hold personal data',
-        g: 'What happens if you do not provide the personal data',
+        f: 'How long we keep personal data',
+        g: 'What happens if you do not provide personal data',
         h: 'Use of automated decision-making or profiling',
-        i: 'Transfer of your personal data outside of the UK',
+        i: 'Transfer of your personal data outside of UK',
         j: 'Your rights',
         k: 'Complaints',
         l: 'Personal information charter'
@@ -414,7 +414,7 @@ export const english = {
         p: "the pages you interact with in 'Get air pollution data' to enable us to improve our service",
         q: 'The lawful basis for processing your personal data to conduct research on the effectiveness of this service is ‘consent’. You do not have to provide your consent, and you can withdraw it at any time.',
         r: 'The processing of your personal data is based on consent. We do not collect any information that could be personally linked to an individual. However, we will need to record your IP address for the service to work.',
-        s: 'We do not share the personal data collected under this privacy notice with other organisations.',
+        s: 'We do not share the personal data we collect under this privacy notice with other organisations',
         t: 'We respect your personal privacy when we respond to access to information requests. We only share information when necessary to meet the statutory requirements of the Environmental Information Regulations 2004 and the Freedom of Information Act 2000.',
         u: 'We will keep your personal data for 7 years in line with legislative requirements.',
         w: 'for advice on retention period that you need to state here.',
@@ -446,7 +446,7 @@ export const english = {
         a22: 'explains more about your rights over your personal data.',
         a23: 'If you accept the Google analytical cookies, then we will collect:',
         a24: 'You can ',
-        a25: 'opt in and out of cookie acceptance.',
+        a25: 'opt in and out of cookies.',
         r2: 'If you have consented to cookies, any information that we collect cannot be removed. This is because we will not be able to identify that information to a specific individual.',
         a27: "the search term you used to find the 'Get air pollution data' service to help us improve it",
         a28: 'opt in and out of cookie acceptance.',
@@ -478,7 +478,7 @@ export const english = {
         text2: 'Purpose',
         text3: 'Expires',
         text4:
-          'Helps us count how many people visit the Get air pollution data by telling us if you’ve visited before.',
+          "Helps us count how many people visit the 'get air pollution data' by telling us if you’ve visited before.",
         text5: '2 years',
         text6: '_gid',
         text7:
@@ -487,7 +487,7 @@ export const english = {
         text9: 'Used to reduce the number of requests.',
         text10: '1 minute',
         text11:
-          'Application related data is managed in this cookie and it is required for application functionality to work',
+          "Application related data is managed in this cookie.It's required for application functionality to work",
         text12: '30 minutes'
       },
       paragraphs: {
@@ -511,8 +511,8 @@ export const english = {
         q: 'the device and browser you use',
         r: 'Yes',
         s: 'No',
-        u: 'The cookies _ga_ and _gat_UA-[G-8CMZBTDQBC] will only be active if you accept the cookies. If you do not accept cookies, they may still appear in your cookie session, but they will not be active.',
-        v: "We use Google Analytics software to understand how people use the 'get air pollution data'service. We do this to: ",
+        u: 'The cookies _ga_ and _gat_UA-[G-8CMZBTDQBC] will only be active if you accept cookies. If you do not accept cookies, they may still appear in your cookie session, but they will not be active.',
+        v: "We use Google Analytics software to understand how people use the 'get air pollution data' service. We do this to: ",
         v1: 'help make sure the site is meeting the needs of its users',
         v2: 'help us make improvements',
         w: 'We do not collect or store your personal information (for example your name or address) so this information cannot be used to identify who you are.',
@@ -535,16 +535,16 @@ export const english = {
         d: 'Enforcement procedure'
       },
       paragraphs: {
-        a: 'Department for Environment, Food & Rural Affairs is committed to making its websites accessible in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.',
+        a: 'Department for Environment, Food and Rural Affairs(Defra) is committed to making its websites accessible in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.',
         b: 'This accessibility statement applies to the',
-        c: 'This website is fully compliant with the Web Content Accessibility Guidelines (WCAG) version 2.2 AA standard.',
-        d: 'The ‘Get air pollution data’ service was evaluated for accessibility by Defra. ',
+        c: 'This website is fully compliant with the Web Content Accessibility Guidelines (WCAG) version 2.2 AA.',
+        d: 'service was evaluated for accessibility by Defra. ',
         e: 'This statement was prepared on 8 January 2025.',
         f: 'This statement was last reviewed on 20 January 2025.',
-        g: 'If you notice any compliance failures or need to request information and content that is not provided in this document, please email',
+        g: 'If you notice any compliance failures or need to request information and content that is not provided in this document,email',
         h: 'The Equality and Human Rights Commission is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.',
         i: 'If you are not happy with how Defra responds to your complaint, contact the',
-        i1: 'Equality Advisory and Support Service (EASS)'
+        i1: 'Equality Advisory and Support Service (EASS).'
       }
     }
   }
