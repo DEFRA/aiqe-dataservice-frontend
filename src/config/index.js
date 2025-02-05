@@ -39,11 +39,7 @@ const config = convict({
     default: '/osnameplaces/userLocation=',
     env: 'Osname api url'
   },
-  // root: {
-  //   doc: 'Project root',
-  //   format: String,
-  //   default: path.normalize(path.join(__dirname, '..', '..'))
-  // },
+
   assetPath: {
     doc: 'Asset path',
     format: String,
