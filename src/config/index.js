@@ -33,10 +33,11 @@ const config = convict({
     default: 'https://aiqe-dataservice-backend.dev.cdp-int.defra.cloud',
     env: 'BACKEND_API_URL'
   },
-  osnameApiUrl: {
+  OS_NAMES_API_URL: {
     doc: 'Osname api url',
     format: String,
-    default: '/osnameplaces/userLocation=',
+    default:
+      'https://aiqe-dataservice-backend.dev.cdp-int.defra.cloud/osnameplaces/userLocation=',
     env: 'Osname api url'
   },
 
