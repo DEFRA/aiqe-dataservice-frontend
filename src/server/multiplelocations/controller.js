@@ -22,12 +22,13 @@ const multipleLocationsController = {
         })
       }
     }
-    const searchInput = request?.yar?.get('fullSearchQuery')
-    const searchValue = searchInput?.value
+
+    const searchInput = request.query.fullSearchQuery
+    const searchValue = request.query.fullSearchQuery
     // const userLocation = searchValue
 
     const locationMiles = request.query?.locationMiles
-    if (searchValue) {
+    if (searchValue !== '' || searchValue !== null) {
       request.yar.set('searchLocation', searchValue)
     } else {
       request.yar.set('searchLocation', '')
@@ -50,6 +51,8 @@ const multipleLocationsController = {
       const locations = result.getOSPlaces
       if (locations) {
         if (locations.length === 0) {
+          request.yar.set('errors', '')
+          request.yar.set('errorMessage', '')
           return h.view('multiplelocations/nolocation', {
             results: result.getOSPlaces,
             serviceName: english.notFoundLocation.heading,
@@ -57,6 +60,8 @@ const multipleLocationsController = {
             searchLocation: searchValue
           })
         } else if (locations.length === 1) {
+          request.yar.set('errors', '')
+          request.yar.set('errorMessage', '')
           return h.view('monitoring-station/index', {
             pageTitle: english.monitoringStation.pageTitle,
             title: english.monitoringStation.title,
@@ -66,6 +71,8 @@ const multipleLocationsController = {
             locationMiles
           })
         } else {
+          request.yar.set('errors', '')
+          request.yar.set('errorMessage', '')
           return h.view('multiplelocations/index', {
             results: result.getOSPlaces,
             pageTitle: english.multipleLocations.pageTitle,
@@ -81,15 +88,15 @@ const multipleLocationsController = {
         }
       }
     } else {
-      const searchInput = request?.yar?.get('fullSearchQuery')
+      const searchInput = request.query.fullSearchQuery
       if (!searchInput?.value) {
-        // console.log('comes into else pART OF')
         const errorData = english.searchLocation.errorText.uk
         const errorSection = errorData?.fields
         setErrorMessage(request, errorSection?.title, errorSection?.text)
         const errors = request.yar?.get('errors')
         const errorMessage = request.yar?.get('errorMessage')
-
+        request.yar.set('errors', '')
+        request.yar.set('errorMessage', '')
         return h.view('search-location/index', {
           pageTitle: english.searchLocation.pageTitle,
           heading: english.searchLocation.heading,
