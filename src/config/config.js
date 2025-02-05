@@ -200,7 +200,7 @@ export const config = convict({
     backendApiUrl: {
       doc: 'Backend api url',
       format: String,
-      default: 'http://localhost:3001',
+      default: 'https://aiqe-dataservice-backend.dev.cdp-int.defra.cloud',
       env: 'BACKEND_API_URL'
     },
     osnameApiUrl: {

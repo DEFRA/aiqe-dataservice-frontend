@@ -36,7 +36,8 @@ const multipleLocationsController = {
       request.yar.set('errors', '')
       request.yar.set('errorMessage', '')
       const result = await invokeosnameAPI()
-
+      console.log("config.get('backendApiUrl')", config.get('backendApiUrl'))
+      console.log("config.get('osnameApiUrl')", config.get('osnameApiUrl'))
       async function invokeosnameAPI() {
         try {
           const response = await axios.get(
