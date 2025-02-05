@@ -10,6 +10,7 @@ export const homeController = {
     const { home } = english
     request.yar.set('searchQuery', null)
     request.yar.set('fullSearchQuery', null)
+    request.yar.set('searchLocation', '')
     return h.view('home/index', {
       pageTitle: home.pageTitle,
       heading: home.heading,
