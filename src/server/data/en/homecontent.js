@@ -387,7 +387,7 @@ export const english = {
         f: 'How long we keep personal data',
         g: 'What happens if you do not provide personal data',
         h: 'Use of automated decision-making or profiling',
-        i: 'Transfer of your personal data outside of UK',
+        i: 'Transfer of your personal data outside the UK',
         j: 'Your rights',
         k: 'Complaints',
         l: 'Personal information charter'
@@ -395,7 +395,7 @@ export const english = {
       paragraphs: {
         a: 'This privacy notice explains how the',
         link1: 'Get air pollution data',
-        a29: 'service processes and shares your personal data. If you have any queries about the content of this privacy notice, email',
+        a29: 'service processes and shares your personal data. If you have any queries about the content of this privacy notice, email ',
         b: 'Department for Environment, Food and Rural Affairs (Defra) is the controller for the personal data we collect:',
         c: ' Department for Environment, Food and Rural Affairs',
         d: '    Seacole Building',
@@ -406,7 +406,7 @@ export const english = {
         i: 'or at the above address.',
         j: 'The data protection officer for Defra is responsible for checking that Defra complies with legislation. You can contact them at',
         j1: ' or at the above postal address.',
-        k: 'For the service to be functional, we collect the postcode or placename that you search for.This is essential data for the service to work.',
+        k: 'For the service to be functional, we collect the postcode or placename that you search for. This is essential data for the service to work.',
         l: 'the postcode or placename that you search for as this is essential data for the service to give relevant data',
         m: 'your IP address so that we can collect your location information - this will help us see what geographical locations our users are in',
         n: 'your device and operating system to help us improve our service',
@@ -478,16 +478,16 @@ export const english = {
         text2: 'Purpose',
         text3: 'Expires',
         text4:
-          "Helps us count how many people visit the 'get air pollution data' by telling us if you’ve visited before.",
+          "Helps us count how many people visit 'get air pollution data' by telling us if you’ve visited before",
         text5: '2 years',
         text6: '_gid',
         text7:
-          'Helps us count how many people visit the Get air pollution data by telling us if you’ve visited before.',
+          'Helps us count how many people visit the Get air pollution data by telling us if you’ve visited before',
         text8: '24 hours',
         text9: 'Used to reduce the number of requests.',
         text10: '1 minute',
         text11:
-          "Application related data is managed in this cookie.It's required for the application to work",
+          "Application related data is managed in this cookie. It's required for the application to work",
         text12: '30 minutes'
       },
       paragraphs: {
@@ -535,7 +535,7 @@ export const english = {
         d: 'Enforcement procedure'
       },
       paragraphs: {
-        a: 'Department for Environment, Food and Rural Affairs(Defra) is committed to making its websites accessible in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.',
+        a: 'The Department for Environment, Food and Rural Affairs (Defra) is committed to making its websites accessible in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.',
         b: 'This accessibility statement applies to the',
         c: 'This website is fully compliant with the Web Content Accessibility Guidelines (WCAG) version 2.2 AA.',
         d: 'service was evaluated for accessibility by Defra. ',
