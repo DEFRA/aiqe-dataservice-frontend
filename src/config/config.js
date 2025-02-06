@@ -206,7 +206,7 @@ export const config = convict({
     OS_NAMES_API_URL: {
       doc: 'Osname api url',
       format: String,
-      default: `https://aiqe-dataservice-backend. ${process.env.ENVIRONMENT}.cdp-int.defra.cloud/osnameplaces/userLocation=`,
+      default: `https://aiqe-dataservice-backend.${process.env.ENVIRONMENT}.cdp-int.defra.cloud/osnameplaces/userLocation=`,
 
       env: 'Osname api url'
     },
