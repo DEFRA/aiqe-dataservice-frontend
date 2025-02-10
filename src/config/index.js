@@ -41,20 +41,26 @@ const config = convict({
 
     env: 'Osname api url'
   },
-  // OS_NAMES_API_URL: {
-  //      doc: 'Osname api url',
-  //      format: String,
-
-  //      default: `https://aiqe-dataservice-backend.dev.cdp-int.defra.cloud/osnameplaces/userLocation=`,
-
-  //     env: 'Osname api url'
-  //   },
   OS_NAMES_API_URL_1: {
     doc: 'Osname api url',
     format: String,
-    default: 'http://localhost:3002/osnameplaces/userLocation=',
+    default: `https://aqie-data-service-backend.${process.env.ENVIRONMENT}.cdp-int.defra.cloud/monitoringstation/location=`,
     env: 'Osname api url'
   },
+  // OS_NAMES_API_URL: {
+  //   doc: 'Osname api url',
+  //   format: String,
+
+  //   default: `https://aiqe-dataservice-backend.dev.cdp-int.defra.cloud/osnameplaces/userLocation=`,
+
+  //   env: 'Osname api url'
+  // },
+  // OS_NAMES_API_URL_1: {
+  //   doc: 'Osname api url',
+  //   format: String,
+  //   default: `https://aqie-data-service-backend.test.cdp-int.defra.cloud/monitoringstation/location=`,
+  //   env: 'Osname api url'
+  // },
 
   assetPath: {
     doc: 'Asset path',
