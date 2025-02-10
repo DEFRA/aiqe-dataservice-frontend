@@ -48,7 +48,39 @@ const multipleLocationsController = {
           return error // Rethrow the error so it can be handled appropriately
         }
       }
+      const result_monitoringst = await invokemon_stnAPI()
+      async function invokemon_stnAPI() {
+        try {
+          const response = await axios.get(
+            config.get('OS_NAMES_API_URL_1') + searchValue
+          )
+
+          return response.data
+        } catch (error) {
+          return error // Rethrow the error so it can be handled appropriately
+        }
+      }
+      console.log(
+        'MonitoringstationPoll',
+        result_monitoringst.getmonitoringstation[1].pollutants
+      )
       const locations = result.getOSPlaces
+      const map1 = new Map()
+      for (
+        let ar = 0;
+        ar < result_monitoringst.getmonitoringstation.length;
+        ar++
+      ) {
+        console.log('ar', result_monitoringst.getmonitoringstation[ar].name)
+        const poll = result_monitoringst.getmonitoringstation[ar].pollutants
+        console.log('poll', poll)
+        console.log('keys', Object.keys(poll))
+        map1.set(
+          result_monitoringst.getmonitoringstation[ar].name,
+          Object.keys(poll)
+        )
+      }
+      console.log('map1', map1)
       if (locations) {
         if (locations.length === 0) {
           request.yar.set('errors', '')
@@ -68,7 +100,9 @@ const multipleLocationsController = {
             serviceName: english.monitoringStation.serviceName,
             paragraphs: english.monitoringStation.paragraphs,
             searchLocation: searchValue,
-            locationMiles
+            locationMiles,
+            monitoring_station: result_monitoringst.getmonitoringstation,
+            pollmap: map1
           })
         } else {
           request.yar.set('errors', '')
@@ -83,7 +117,8 @@ const multipleLocationsController = {
             params: english.multipleLocations.paragraphs,
             button: english.multipleLocations.button,
             locationMiles,
-            searchLocation: searchValue
+            searchLocation: searchValue,
+            monitoring_station: result_monitoringst.getmonitoringstation
           })
         }
       }
