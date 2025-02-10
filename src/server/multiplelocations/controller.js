@@ -49,6 +49,7 @@ const multipleLocationsController = {
         }
       }
       const MonitoringstResult = await InvokeMonitstnAPI()
+
       async function InvokeMonitstnAPI() {
         try {
           const response = await axios.get(
@@ -63,13 +64,12 @@ const multipleLocationsController = {
 
       const locations = result.getOSPlaces
       const map1 = new Map()
-      for (const ar of MonitoringstResult.getmonitoringstation) {
-        const poll = MonitoringstResult.getmonitoringstation[ar].pollutants
+      if (MonitoringstResult.length !== 0) {
+        for (const ar of MonitoringstResult.getmonitoringstation) {
+          const poll = ar.pollutants
 
-        map1.set(
-          MonitoringstResult.getmonitoringstation[ar].name,
-          Object.keys(poll)
-        )
+          map1.set(ar.name, Object.keys(poll))
+        }
       }
       if (locations) {
         if (locations.length === 0) {
