@@ -48,7 +48,29 @@ const multipleLocationsController = {
           return error // Rethrow the error so it can be handled appropriately
         }
       }
+      const MonitoringstResult = await InvokeMonitstnAPI()
+      async function InvokeMonitstnAPI() {
+        try {
+          const response = await axios.get(
+            config.get('OS_NAMES_API_URL_1') + searchValue
+          )
+
+          return response.data
+        } catch (error) {
+          return error // Rethrow the error so it can be handled appropriately
+        }
+      }
+
       const locations = result.getOSPlaces
+      const map1 = new Map()
+      for (const ar of MonitoringstResult.getmonitoringstation) {
+        const poll = MonitoringstResult.getmonitoringstation[ar].pollutants
+
+        map1.set(
+          MonitoringstResult.getmonitoringstation[ar].name,
+          Object.keys(poll)
+        )
+      }
       if (locations) {
         if (locations.length === 0) {
           request.yar.set('errors', '')
@@ -68,7 +90,9 @@ const multipleLocationsController = {
             serviceName: english.monitoringStation.serviceName,
             paragraphs: english.monitoringStation.paragraphs,
             searchLocation: searchValue,
-            locationMiles
+            locationMiles,
+            monitoring_station: MonitoringstResult.getmonitoringstation,
+            pollmap: map1
           })
         } else {
           request.yar.set('errors', '')
@@ -83,7 +107,8 @@ const multipleLocationsController = {
             params: english.multipleLocations.paragraphs,
             button: english.multipleLocations.button,
             locationMiles,
-            searchLocation: searchValue
+            searchLocation: searchValue,
+            monitoring_station: MonitoringstResult.getmonitoringstation
           })
         }
       }

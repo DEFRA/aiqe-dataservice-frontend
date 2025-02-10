@@ -18,7 +18,9 @@ const searchLocationController = {
       page: english.searchLocation.page,
       serviceName: english.searchLocation.serviceName,
       params: english.searchLocation.searchParams,
-      button: english.searchLocation.button
+      button: english.searchLocation.button,
+      displayBacklink: true,
+      hrefq: '/'
     })
   }
 }
