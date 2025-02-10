@@ -48,8 +48,8 @@ const multipleLocationsController = {
           return error // Rethrow the error so it can be handled appropriately
         }
       }
-      const result_monitoringst = await invokemon_stnAPI()
-      async function invokemon_stnAPI() {
+      const MonitoringstResult = await InvokeMonitstnAPI()
+      async function InvokeMonitstnAPI() {
         try {
           const response = await axios.get(
             config.get('OS_NAMES_API_URL_1') + searchValue
@@ -60,27 +60,17 @@ const multipleLocationsController = {
           return error // Rethrow the error so it can be handled appropriately
         }
       }
-      console.log(
-        'MonitoringstationPoll',
-        result_monitoringst.getmonitoringstation[1].pollutants
-      )
+
       const locations = result.getOSPlaces
       const map1 = new Map()
-      for (
-        let ar = 0;
-        ar < result_monitoringst.getmonitoringstation.length;
-        ar++
-      ) {
-        console.log('ar', result_monitoringst.getmonitoringstation[ar].name)
-        const poll = result_monitoringst.getmonitoringstation[ar].pollutants
-        console.log('poll', poll)
-        console.log('keys', Object.keys(poll))
+      for (const ar of MonitoringstResult.getmonitoringstation) {
+        const poll = MonitoringstResult.getmonitoringstation[ar].pollutants
+
         map1.set(
-          result_monitoringst.getmonitoringstation[ar].name,
+          MonitoringstResult.getmonitoringstation[ar].name,
           Object.keys(poll)
         )
       }
-      console.log('map1', map1)
       if (locations) {
         if (locations.length === 0) {
           request.yar.set('errors', '')
@@ -101,7 +91,7 @@ const multipleLocationsController = {
             paragraphs: english.monitoringStation.paragraphs,
             searchLocation: searchValue,
             locationMiles,
-            monitoring_station: result_monitoringst.getmonitoringstation,
+            monitoring_station: MonitoringstResult.getmonitoringstation,
             pollmap: map1
           })
         } else {
@@ -118,7 +108,7 @@ const multipleLocationsController = {
             button: english.multipleLocations.button,
             locationMiles,
             searchLocation: searchValue,
-            monitoring_station: result_monitoringst.getmonitoringstation
+            monitoring_station: MonitoringstResult.getmonitoringstation
           })
         }
       }
