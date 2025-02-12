@@ -15,7 +15,8 @@
         <ul class="govuk-list govuk-!-margin-bottom-2 odd-page">
       {% for item in results %}
         <li>
-         <a href=''class="govuk-link">
+          <a href=  {{['/location/',item.GAZETTEER_ENTRY.ID] | join}}   >
+       
           {% if item.name2 %}  
           <span class="govuk-!-font-weight-bold">{{ item.name2 }}</span>, 
           {% else %}
@@ -31,8 +32,9 @@
         
       {% endfor %}
     </ul>
+    
        
-       <a href="/search-location" class="govuk-link">{{params.c}}</a>
+      <p class="govuk-body">Alternatively <a href="/search-location" class="govuk-link">{{params.c}}</a></p> 
        
         </div>
         </div>

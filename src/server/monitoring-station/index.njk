@@ -23,12 +23,12 @@
 
           <th class="govuk-table__cell"> 
           <strong>
-          <a href="#" class="govuk-link">{{item.name}} </a>
+          <a href=  {{['/stationdetails/',item.id] | join}} >  {{item.name}} </a>
           </strong>
            <p class="govuk-body">{{item.distance}} miles away</p>
           </th>
          <td class="govuk-table_cell">
-          <p class="govuk-body">{{item.areaType}}</p>
+          <p class="govuk-body">{{item.siteType}}</p>
          </td>
          
           <td class = "govuk-table_cell">

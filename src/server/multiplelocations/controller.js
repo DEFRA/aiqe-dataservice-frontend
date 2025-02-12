@@ -8,9 +8,13 @@ const multipleLocationsController = {
     // const { query } = request
 
     if (request != null) {
+      //  const UL = parseInt(request.query.userLocation)
+
       request.yar.set('errors', '')
       request.yar.set('errorMessage', '')
       request.yar.set('locationMiles', request.query?.locationMiles)
+      request.yar.set('osnameapiresult', '')
+
       if (request.query?.fullSearchQuery?.length > 0) {
         request.yar.set('fullSearchQuery', {
           value: decodeURI(request.query.fullSearchQuery)
@@ -25,9 +29,10 @@ const multipleLocationsController = {
 
     const searchInput = request.query.fullSearchQuery
     const searchValue = request.query.fullSearchQuery
+    const locationMiles = request.query?.locationMiles
     // const userLocation = searchValue
 
-    const locationMiles = request.query?.locationMiles
+    // const Miles = request.query?.locationMiles
     if (searchValue !== '' || searchValue !== null) {
       request.yar.set('searchLocation', searchValue)
     } else {
@@ -36,7 +41,11 @@ const multipleLocationsController = {
     if (searchInput) {
       request.yar.set('errors', '')
       request.yar.set('errorMessage', '')
+
       const result = await invokeosnameAPI()
+      if (result != null) {
+        request.yar.set('osnameapiresult', result)
+      }
       async function invokeosnameAPI() {
         try {
           const response = await axios.get(
@@ -48,12 +57,16 @@ const multipleLocationsController = {
           return error // Rethrow the error so it can be handled appropriately
         }
       }
+
       const MonitoringstResult = await InvokeMonitstnAPI()
 
       async function InvokeMonitstnAPI() {
         try {
           const response = await axios.get(
-            config.get('OS_NAMES_API_URL_1') + searchValue
+            config.get('OS_NAMES_API_URL_1') +
+              searchValue +
+              '&miles=' +
+              locationMiles
           )
 
           return response.data
@@ -64,11 +77,13 @@ const multipleLocationsController = {
 
       const locations = result.getOSPlaces
       const map1 = new Map()
-      if (MonitoringstResult.length !== 0) {
-        for (const ar of MonitoringstResult.getmonitoringstation) {
-          const poll = ar.pollutants
+      if (locations.length > 1) {
+        if (MonitoringstResult.length !== 0) {
+          for (const ar of MonitoringstResult.getmonitoringstation) {
+            const poll = ar.pollutants
 
-          map1.set(ar.name, Object.keys(poll))
+            map1.set(ar.name, Object.keys(poll))
+          }
         }
       }
       if (locations) {

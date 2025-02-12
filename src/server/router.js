@@ -12,6 +12,7 @@ import { monitoringStation } from '~/src/server/monitoring-station/index.js'
 import { stationDetails } from '~/src/server/stationdetails/index.js'
 import { serveStaticFiles } from '~/src/server/common/helpers/serve-static-files.js'
 import { about } from '~/src/server/about/index.js'
+import { locationId } from '~/src/server/locationId/index.js'
 
 /**
  * @satisfies {ServerRegisterPluginObject<void>}
@@ -35,7 +36,8 @@ export const router = {
         searchLocation,
         multiplelocations,
         monitoringStation,
-        stationDetails
+        stationDetails,
+        locationId
       ])
 
       // Static assets
