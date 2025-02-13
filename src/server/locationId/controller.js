@@ -7,8 +7,7 @@ const getLocationDetailsController = {
 
     const locationID = request.params.id
     const result = request.yar.get('osnameapiresult')
-
-    // request.yar.set('locationMiles', request.query?.locationMiles)
+    const fullSearchQuery = request.yar.get('fullSearchQuery').value
 
     const locationMiles = request.yar.get('locationMiles')
     request.yar.set('errors', '')
@@ -51,7 +50,11 @@ const getLocationDetailsController = {
           map1.set(ar.name, Object.keys(poll))
         }
       }
-
+      const hrefq =
+        '/multiplelocations?fullSearchQuery=' +
+        fullSearchQuery +
+        '&locationMiles=' +
+        locationMiles
       if (userLocation) {
         return h.view('monitoring-station/index', {
           pageTitle: english.monitoringStation.pageTitle,
@@ -61,7 +64,10 @@ const getLocationDetailsController = {
           searchLocation: userLocation,
           locationMiles,
           monitoring_station: MonitoringstResult.getmonitoringstation,
-          pollmap: map1
+          pollmap: map1,
+          displayBacklink: true,
+          fullSearchQuery,
+          hrefq
         })
       }
       //   const x = query

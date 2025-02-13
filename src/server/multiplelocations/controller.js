@@ -5,15 +5,11 @@ import axios from 'axios'
 
 const multipleLocationsController = {
   handler: async (request, h) => {
-    // const { query } = request
-
     if (request != null) {
-      //  const UL = parseInt(request.query.userLocation)
-
       request.yar.set('errors', '')
       request.yar.set('errorMessage', '')
       request.yar.set('locationMiles', request.query?.locationMiles)
-      request.yar.set('osnameapiresult', '')
+      request.yar.set('selectedLocation', '')
 
       if (request.query?.fullSearchQuery?.length > 0) {
         request.yar.set('fullSearchQuery', {
@@ -30,9 +26,7 @@ const multipleLocationsController = {
     const searchInput = request.query.fullSearchQuery
     const searchValue = request.query.fullSearchQuery
     const locationMiles = request.query?.locationMiles
-    // const userLocation = searchValue
 
-    // const Miles = request.query?.locationMiles
     if (searchValue !== '' || searchValue !== null) {
       request.yar.set('searchLocation', searchValue)
     } else {
@@ -41,64 +35,79 @@ const multipleLocationsController = {
     if (searchInput) {
       request.yar.set('errors', '')
       request.yar.set('errorMessage', '')
+      const locationdetails = request.yar.get('osnameapiresult')
 
-      const result = await invokeosnameAPI()
-      if (result != null) {
-        request.yar.set('osnameapiresult', result)
-      }
-      async function invokeosnameAPI() {
-        try {
-          const response = await axios.get(
-            config.get('OS_NAMES_API_URL') + searchValue
-          )
-
-          return response.data
-        } catch (error) {
-          return error // Rethrow the error so it can be handled appropriately
-        }
-      }
-
-      const MonitoringstResult = await InvokeMonitstnAPI()
-
-      async function InvokeMonitstnAPI() {
-        try {
-          const response = await axios.get(
-            config.get('OS_NAMES_API_URL_1') +
-              searchValue +
-              '&miles=' +
-              locationMiles
-          )
-
-          return response.data
-        } catch (error) {
-          return error // Rethrow the error so it can be handled appropriately
-        }
-      }
-
-      const locations = result.getOSPlaces
+      let locations = ''
+      let MonitoringstResult = ''
       const map1 = new Map()
-      if (locations.length > 1) {
-        if (MonitoringstResult.length !== 0) {
-          for (const ar of MonitoringstResult.getmonitoringstation) {
-            const poll = ar.pollutants
+      if (
+        locationdetails.length === 0 ||
+        locationdetails.length === undefined
+      ) {
+        const result = await invokeosnameAPI()
+        if (result != null) {
+          request.yar.set('osnameapiresult', result)
+        }
+        async function invokeosnameAPI() {
+          try {
+            const response = await axios.get(
+              config.get('OS_NAMES_API_URL') + searchValue
+            )
 
-            map1.set(ar.name, Object.keys(poll))
+            return response.data
+          } catch (error) {
+            return error // Rethrow the error so it can be handled appropriately
+          }
+        }
+        locations = result.getOSPlaces
+      } else {
+        locations = locationdetails.getOSPlaces
+      }
+
+      if (searchValue !== '' || searchValue !== null) {
+        MonitoringstResult = await InvokeMonitstnAPI()
+
+        async function InvokeMonitstnAPI() {
+          try {
+            const response = await axios.get(
+              config.get('OS_NAMES_API_URL_1') +
+                searchValue +
+                '&miles=' +
+                locationMiles
+            )
+
+            return response.data
+          } catch (error) {
+            return error // Rethrow the error so it can be handled appropriately
+          }
+        }
+        if (locations.length > 0) {
+          if (MonitoringstResult.length !== 0) {
+            for (const ar of MonitoringstResult.getmonitoringstation) {
+              const poll = ar.pollutants
+
+              map1.set(ar.name, Object.keys(poll))
+            }
           }
         }
       }
+
       if (locations) {
         if (locations.length === 0) {
           request.yar.set('errors', '')
           request.yar.set('errorMessage', '')
           return h.view('multiplelocations/nolocation', {
-            results: result.getOSPlaces,
+            results: locations,
             serviceName: english.notFoundLocation.heading,
             paragraph: english.notFoundLocation.paragraphs,
-            searchLocation: searchValue
+            searchLocation: searchValue,
+            displayBacklink: true,
+            hrefq: '/search-location'
           })
         } else if (locations.length === 1) {
           request.yar.set('errors', '')
           request.yar.set('errorMessage', '')
+
           return h.view('monitoring-station/index', {
             pageTitle: english.monitoringStation.pageTitle,
             title: english.monitoringStation.title,
@@ -107,13 +116,16 @@ const multipleLocationsController = {
             searchLocation: searchValue,
             locationMiles,
             monitoring_station: MonitoringstResult.getmonitoringstation,
-            pollmap: map1
+            pollmap: map1,
+
+            displayBacklink: true,
+            hrefq: '/search-location'
           })
         } else {
           request.yar.set('errors', '')
           request.yar.set('errorMessage', '')
           return h.view('multiplelocations/index', {
-            results: result.getOSPlaces,
+            results: locations,
             pageTitle: english.multipleLocations.pageTitle,
             heading: english.multipleLocations.heading,
             page: english.multipleLocations.page,
@@ -123,12 +135,14 @@ const multipleLocationsController = {
             button: english.multipleLocations.button,
             locationMiles,
             searchLocation: searchValue,
-            monitoring_station: MonitoringstResult.getmonitoringstation
+            monitoring_station: MonitoringstResult.getmonitoringstation,
+            displayBacklink: true,
+            hrefq: '/search-location'
           })
         }
       }
     } else {
-      const searchInput = request.query.fullSearchQuery
+      const fullSearchQuery = request.query.fullSearchQuery
       if (!searchInput?.value) {
         const errorData = english.searchLocation.errorText.uk
         const errorSection = errorData?.fields
@@ -137,6 +151,8 @@ const multipleLocationsController = {
         const errorMessage = request.yar?.get('errorMessage')
         request.yar.set('errors', '')
         request.yar.set('errorMessage', '')
+        request.yar.set('fullSearchQuery', '')
+        request.yar.set('osnameapiresult', '')
         return h.view('search-location/index', {
           pageTitle: english.searchLocation.pageTitle,
           heading: english.searchLocation.heading,
@@ -144,6 +160,9 @@ const multipleLocationsController = {
           serviceName: english.searchLocation.serviceName,
           params: english.searchLocation.searchParams,
           button: english.searchLocation.button,
+          displayBacklink: true,
+          fullSearchQuery,
+          hrefq: '/',
           errors,
           errorMessage
         })

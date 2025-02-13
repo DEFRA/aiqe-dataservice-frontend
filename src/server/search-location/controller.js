@@ -5,8 +5,8 @@ const searchLocationController = {
     // const { query } = request
     request.yar.set('errors', '')
     request.yar.set('errorMessage', '')
-    // const searchInput = request?.yar?.get('fullSearchQuery')
-    // const searchLocation = request.yar.get('searchLocation')
+    request.yar.get('osnameapiresult', '')
+    const fullSearchQuery = request?.yar?.get('fullSearchQuery')
     if (request != null) {
       //   const x = query
       // const invalidSearchEntry = false
@@ -20,6 +20,7 @@ const searchLocationController = {
       params: english.searchLocation.searchParams,
       button: english.searchLocation.button,
       displayBacklink: true,
+      fullSearchQuery,
       hrefq: '/'
     })
   }

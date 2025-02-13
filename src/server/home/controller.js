@@ -11,6 +11,8 @@ export const homeController = {
     request.yar.set('searchQuery', null)
     request.yar.set('fullSearchQuery', null)
     request.yar.set('searchLocation', '')
+    request.yar.set('osnameapiresult', '')
+    request.yar.set('selectedLocation', '')
     return h.view('home/index', {
       pageTitle: home.pageTitle,
       heading: home.heading,
