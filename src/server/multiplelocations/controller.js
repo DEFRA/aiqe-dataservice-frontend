@@ -67,6 +67,9 @@ const multipleLocationsController = {
       if (searchValue !== '' || searchValue !== null) {
         MonitoringstResult = await InvokeMonitstnAPI()
 
+        if (MonitoringstResult !== null) {
+          request.yar.set('MonitoringstResult', MonitoringstResult)
+        }
         async function InvokeMonitstnAPI() {
           try {
             const response = await axios.get(

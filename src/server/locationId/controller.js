@@ -39,14 +39,11 @@ const getLocationDetailsController = {
       }
       const MonitoringstResult = await InvokeMonitstnAPI()
       request.yar.set('MonitoringstResult', MonitoringstResult)
-
-      // const locations = result.getOSPlaces
       const map1 = new Map()
 
       if (MonitoringstResult.length !== 0) {
         for (const ar of MonitoringstResult.getmonitoringstation) {
           const poll = ar.pollutants
-
           map1.set(ar.name, Object.keys(poll))
         }
       }
