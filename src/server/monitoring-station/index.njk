@@ -5,14 +5,17 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">{{title.title1}} {{title.title2}} {{ locationMiles}} {{title.title3}} {{searchLocation}}</h1>
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">{{title.title1}} {{title.title2}} {{ locationMiles }} miles {{title.title3}} {{searchLocation}}</h1>
+   
     <p class="govuk-body"><a href="/search-location">{{paragraphs.a}}</a></p>
+     </div>
 <table class="govuk-table">  
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header govuk-!-width-one-half">{{paragraphs.b}}</th>
-      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">{{paragraphs.c}}</th>
-      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">{{paragraphs.d}}</th>
+      <th class="govuk-table__header govuk-!-width-one-half" scope="col">{{paragraphs.b}}</th>
+      <th  class="govuk-table__header govuk-!-width-one-quarter"scope="col">{{paragraphs.c}}</th>
+      <th class="govuk-table__header govuk-table__header--numeric govuk-!-width-one-quarter" scope="col">{{paragraphs.d}}</th>
     </tr>
   </thead>
 
@@ -31,7 +34,7 @@
           <p class="govuk-body">{{item.siteType}}</p>
          </td>
          
-          <td class = "govuk-table_cell">
+          <td class = "govuk-table__cell govuk-table__cell--numeric">
          {% set pollutantTime = pollmap.get(item.name) %}
           <ul class="govuk-list">  
             {% for item1 in pollutantTime %}
@@ -39,6 +42,16 @@
             <li>nitrodioxide </li> 
             {% elseif item1 == 'SO2' %}
             <li>sulphurdioxide </li> 
+                {% elseif item1 == 'PM25' %}
+            <li>PM2.5</li> 
+            {% elseif item1 == 'GR25' %}
+            <li>PM2.5</li> 
+            {% elseif item1 == 'MP10' %}
+            <li>PM10</li> 
+            {% elseif item1 == 'GE10' %}
+            <li>PM10</li> 
+             {% elseif item1 == 'GR10' %}
+            <li>PM10</li> 
             {% elseif item1 == 'O3' %}
             <li> ozone </li>
              {% else %}
