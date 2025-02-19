@@ -6,9 +6,10 @@ const getLocationDetailsController = {
     // const { query } = request
 
     const locationID = request.params.id
+
     const result = request.yar.get('osnameapiresult')
     const fullSearchQuery = request.yar.get('fullSearchQuery').value
-
+    request.yar.set('locationID', request.params.id)
     const locationMiles = request.yar.get('locationMiles')
     request.yar.set('errors', '')
     request.yar.set('errorMessage', '')
@@ -22,7 +23,6 @@ const getLocationDetailsController = {
           }
         }
       }
-
       async function InvokeMonitstnAPI() {
         try {
           const response = await axios.get(

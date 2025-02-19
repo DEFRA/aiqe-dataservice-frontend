@@ -13,6 +13,7 @@ export const homeController = {
     request.yar.set('searchLocation', '')
     request.yar.set('osnameapiresult', '')
     request.yar.set('selectedLocation', '')
+    request.yar.set('nooflocation', '')
     return h.view('home/index', {
       pageTitle: home.pageTitle,
       heading: home.heading,

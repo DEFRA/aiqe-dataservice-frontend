@@ -99,6 +99,7 @@ const multipleLocationsController = {
         if (locations.length === 0) {
           request.yar.set('errors', '')
           request.yar.set('errorMessage', '')
+          request.yar.set('nooflocation', 'none')
           return h.view('multiplelocations/nolocation', {
             results: locations,
             serviceName: english.notFoundLocation.heading,
@@ -110,7 +111,7 @@ const multipleLocationsController = {
         } else if (locations.length === 1) {
           request.yar.set('errors', '')
           request.yar.set('errorMessage', '')
-
+          request.yar.set('nooflocation', 'single')
           return h.view('monitoring-station/index', {
             pageTitle: english.monitoringStation.pageTitle,
             title: english.monitoringStation.title,
@@ -127,6 +128,7 @@ const multipleLocationsController = {
         } else {
           request.yar.set('errors', '')
           request.yar.set('errorMessage', '')
+          request.yar.set('nooflocation', 'multiple')
           return h.view('multiplelocations/index', {
             results: locations,
             pageTitle: english.multipleLocations.pageTitle,
