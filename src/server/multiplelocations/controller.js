@@ -85,6 +85,7 @@ const multipleLocationsController = {
             return error // Rethrow the error so it can be handled appropriately
           }
         }
+
         if (locations !== undefined && locations.length > 0) {
           if (MonitoringstResult.length !== 0) {
             for (const ar of MonitoringstResult.getmonitoringstation) {
@@ -109,6 +110,18 @@ const multipleLocationsController = {
               map1.set(ar.name, pollkeys)
             }
           }
+        } else {
+          request.yar.set('errors', '')
+          request.yar.set('errorMessage', '')
+          request.yar.set('nooflocation', 'none')
+          return h.view('multiplelocations/nolocation', {
+            results: locations,
+            serviceName: english.notFoundLocation.heading,
+            paragraph: english.notFoundLocation.paragraphs,
+            searchLocation: searchValue,
+            displayBacklink: true,
+            hrefq: '/search-location'
+          })
         }
       }
 
