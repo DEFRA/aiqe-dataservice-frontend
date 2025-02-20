@@ -59,6 +59,7 @@ const multipleLocationsController = {
             return error // Rethrow the error so it can be handled appropriately
           }
         }
+
         locations = result.getOSPlaces
       } else {
         locations = locationdetails.getOSPlaces
@@ -84,19 +85,35 @@ const multipleLocationsController = {
             return error // Rethrow the error so it can be handled appropriately
           }
         }
-        if (locations.length > 0) {
+        if (locations !== undefined && locations.length > 0) {
           if (MonitoringstResult.length !== 0) {
             for (const ar of MonitoringstResult.getmonitoringstation) {
               const poll = ar.pollutants
+              const poll1 = Object.keys(poll)
+              const pollarray = []
+              let pollutant
 
-              map1.set(ar.name, Object.keys(poll))
+              for (const p of poll1) {
+                if (p === 'PM25' || p === 'GR25') {
+                  pollutant = 'PM2.5'
+                } else if (p === 'MP10' || p === 'GE10' || p === 'GR10') {
+                  pollutant = 'PM10'
+                } else {
+                  pollutant = p
+                }
+                pollarray.push(pollutant)
+              }
+              const pollkeys = pollarray.filter(
+                (item, index) => pollarray.indexOf(item) === index
+              )
+              map1.set(ar.name, pollkeys)
             }
           }
         }
       }
 
       if (locations) {
-        if (locations.length === 0) {
+        if (locations === undefined || locations.length === 0) {
           request.yar.set('errors', '')
           request.yar.set('errorMessage', '')
           request.yar.set('nooflocation', 'none')
