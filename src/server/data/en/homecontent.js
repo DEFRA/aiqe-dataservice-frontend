@@ -484,7 +484,7 @@ export const english = {
         text7:
           'Helps us count how many people visit the Get air pollution data by telling us if you’ve visited before',
         text8: '24 hours',
-        text9: 'Used to reduce the number of requests.',
+        text9: 'Used to reduce the number of requests',
         text10: '1 minute',
         text11:
           "Application related data is managed in this cookie. It's required for the application to work",
